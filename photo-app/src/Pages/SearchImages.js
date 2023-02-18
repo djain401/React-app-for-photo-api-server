@@ -20,8 +20,9 @@ const SearchImages = () => {
   };
 
   useEffect(() => {
-    if (textInput && searchFlag) {
-      fetch(`http://localhost:3002/searchImage?title=${textInput}`)
+    if (textInput) {
+      let url = `http://localhost:3002/searchImage?title=${textInput}`;
+      fetch(url)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -32,7 +33,7 @@ const SearchImages = () => {
         });
       setSearchFlag(false);
     }
-  }, [textInput, searchFlag]);
+  }, [searchFlag]);
 
   return (
     <div>
